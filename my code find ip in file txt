@@ -1,0 +1,22 @@
+#!usr/bin/python
+#find duplicate ip in ip.txt and write to final_file.txt
+def read_file(file):
+	x = open(file,"r")
+	content_file = x.read()
+	print(content_file)
+	x.close()
+	lst_ip = content_file.split("\n")
+#find duplicate item
+	uniqe_list=[]
+	for item in lst_ip:
+		if item not in uniqe_list:
+			uniqe_list.append(item)
+# write uniqe list in final_file.txt
+	with open("final_file.txt","w") as final:
+		for i in uniqe_list:
+			final.write("%s\n"%i)
+#read and print final_file
+	with open ("final_file.txt","r") as final:
+		print ( "uniqe IP :"+"\n"+final.read())
+
+read_file("ip.txt")
